@@ -28,7 +28,7 @@ module.exports = {
     chunkFilename: '[name].[chunkhash].js',
   },
   plugins: [
-    new WebpackChunkHash()
+    new WebpackChunkHash({algorithm: 'md5'}) // 'md5' is default value
   ]
 };
 
