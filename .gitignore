@@ -1,10 +1,5 @@
-# Own
-example/dest/*
-/dist
-!example/dest/index.html
-
-# Node
+.DS_Store
+coverage
+dist
 node_modules
-
-# IDEs
-.idea
+*.log

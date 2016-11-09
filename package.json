@@ -1,16 +1,20 @@
 {
-  "name": "webpack-md5-hash",
-  "version": "0.0.5",
-  "description": "Plugin to replace a standard webpack chunkhash with md5.",
+  "name": "webpack-chunk-hash",
+  "version": "0.1.0",
+  "description": "Plugin to replace a standard webpack chunk hashing with custom (md5) one.",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
-    "pretest": "jshint",
+    "lint": "jshint",
+    "pretest": "rimraf dist",
     "test": "jasmine-node --captureExceptions spec"
   },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/erm0l0v/webpack-md5-hash.git"
+    "url": "git@github.com:alexindigo/webpack-chunk-hash.git"
   },
   "keywords": [
     "webpack",
@@ -18,24 +22,14 @@
     "plugin",
     "md5"
   ],
-  "author": "Kirill Ermolov",
-  "contributors": [{
-    "name": "Sebastien Dubois",
-    "email": "seb@dsebastien.net",
-    "url": "https://www.dsebastien.net"
-  }],
+  "author": "Alex Indigo <iam@alexindigo.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/erm0l0v/webpack-md5-hash/issues"
-  },
-  "homepage": "https://github.com/erm0l0v/webpack-md5-hash",
-  "dependencies": {
-    "md5": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "argparse": "^1.0.4",
     "jasmine-node": "^1.14.5",
     "jshint": "^2.8.0",
-    "rimraf": "^2.5.0"
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.3"
   }
 }
