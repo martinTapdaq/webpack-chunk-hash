@@ -41,11 +41,12 @@ function getModuleSource(module)
 {
   return {
     id    : module.id,
-    source: (module._source || {})._value || ''
+    source: (module._source || {})._value || '',
+    dependencies: (module.dependencies || []).map(function(d){ return d.module ? d.module.id : ''; })
   };
 }
 
 function concatenateSource(result, module)
 {
-  return result + module.id + ':' + module.source;
+  return result + '#' + module.id + ':' + module.source + '$' + (module.dependencies.join(','));
 }
