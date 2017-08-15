@@ -19,7 +19,8 @@ WebpackChunkHash.prototype.apply = function(compiler)
   {
     compilation.plugin('chunk-hash', function(chunk, chunkHash)
     {
-      var source = chunk.modules.map(getModuleSource).sort(sortById).reduce(concatenateSource, '')
+      var modules = chunk.mapModules ? chunk.mapModules(getModuleSource) : chunk.modules.map(getModuleSource)
+      var source = modules.sort(sortById).reduce(concatenateSource, '')
         , hash   = crypto.createHash(_plugin.algorithm).update(source + _plugin.additionalHashContent(chunk))
         ;
 
